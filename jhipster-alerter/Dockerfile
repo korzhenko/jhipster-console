@@ -21,7 +21,8 @@ RUN curl -Lo elastalert.tar.gz ${ELASTALERT_URL} && \
 
 WORKDIR /opt/elastalert
 
-RUN pip install "requests==2.18.1" && \ 
+RUN pip install "python-dateutil<2.7.0,>=2.1" && \
+    pip install "requests==2.18.1" && \
     pip install "setuptools>=11.3" && \
     python setup.py install
 
