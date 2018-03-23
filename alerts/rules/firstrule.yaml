@@ -1,0 +1,20 @@
+es_host: jhipster-elasticsearch
+es_port: 9200
+index: logstash-*
+name: 'Test send notify'
+type: any
+filter:
+- query:
+    query_string:
+      query: "level:WARN"
+alert:
+- "stride"
+- "email"
+email:
+- "aleksandr.korzhenko@itomy.ch"
+email_add_domain: "@itomy.ch"
+smtp_host: smtp.gmail.com
+smtp_auth_file: '/opt/elastalert/rules/email_acct.txt'
+stride_access_token: BT8cG5fSNzt2hvFosPOd
+stride_cloud_id: f84b387e-b8cc-4b40-9060-c36a6bdd94be
+stride_converstation_id: 321d6a13-244d-4ae6-a528-11974984b47e
