@@ -4,7 +4,7 @@ RUN apk update && apk upgrade && apk add bash curl tar musl-dev linux-headers g+
 
 ENV SET_CONTAINER_TIMEZONE=false \
     CONTAINER_TIMEZONE=UTC \
-    ELASTALERT_URL=https://github.com/Yelp/elastalert/archive/v0.1.25.tar.gz \
+    ELASTALERT_URL=https://github.com/Yelp/elastalert/archive/v0.1.29.tar.gz \
     ELASTALERT_HOME=/opt/elastalert \
     RULES_DIRECTORY=/opt/elastalert/rules \
     ES_HOST=jhipster-elasticsearch \
@@ -21,7 +21,8 @@ RUN curl -Lo elastalert.tar.gz ${ELASTALERT_URL} && \
 
 WORKDIR /opt/elastalert
 
-RUN pip install "requests==2.18.1" && \ 
+RUN pip install "python-dateutil<2.7.0,>=2.1" && \
+    pip install "requests==2.18.1" && \
     pip install "setuptools>=11.3" && \
     python setup.py install
 

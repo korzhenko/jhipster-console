@@ -40,20 +40,20 @@ services:
         depends_on:
             - jhipster-elasticsearch
 
-    # jhipster-alerter:
-    #     build: jhipster-alerter/
-    #     # Uncomment this section to enable alerting
-    #     volumes:
-    #         #- ./alerts/config.yaml:/opt/elastalert/config.yaml
-    #         - ./alerts/rules/:/opt/elastalert/rules
+    jhipster-alerter:
+        build: jhipster-alerter/
+        # Uncomment this section to enable alerting
+        volumes:
+            - ./jhipster-alerter/config.yaml:/opt/elastalert/config.yaml
+            - ./alerts/rules/:/opt/elastalert/rules
 
     #https://www.elastic.co/guide/en/elasticsearch/client/curator/current/configuration.html
-    # jhipster-curator:
-    #      build: jhipster-curator/
-    #      environment:
-    #          - ES_HOST=jhipster-elasticsearch
-    #          - UNIT_COUNT=7
-    #          - UNIT=days
+    jhipster-curator:
+         build: jhipster-curator/
+         environment:
+             - ES_HOST=jhipster-elasticsearch
+             - UNIT_COUNT=7
+             - UNIT=days
 
     # jhipster-zipkin:
     #     build: jhipster-zipkin/
