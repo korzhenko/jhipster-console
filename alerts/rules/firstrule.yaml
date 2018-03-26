@@ -6,10 +6,10 @@ type: any
 filter:
 - query:
     query_string:
-      query: "level:WARN"
+      query: "logger_name: 'org.zalando.problem.spring.web.advice.AdviceTrait'"
 alert:
 - "stride"
-- "email"
+#- "email"
 email:
 - "aleksandr.korzhenko@itomy.ch"
 email_add_domain: "@itomy.ch"
