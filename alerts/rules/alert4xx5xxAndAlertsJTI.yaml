@@ -1,12 +1,13 @@
 es_host: jhipster-elasticsearch
 es_port: 9200
 index: logstash-*
-name: 'Test send notify'
+name: 'Send notify'
 type: any
+_source_enabled: False
 filter:
 - query:
     query_string:
-      query: "logger_name: 'org.zalando.problem.spring.web.advice.AdviceTrait'"
+      query: "logger_name: 'org.zalando.problem.spring.web.advice.AdviceTrait' || logger_name: 'com.jti.adminpanel.service.AlertLogService'"
 alert:
 - "stride"
 #- "email"
